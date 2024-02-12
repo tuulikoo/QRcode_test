@@ -1,3 +1,5 @@
 *.svg
 
 /target/
+target/
+target/*
