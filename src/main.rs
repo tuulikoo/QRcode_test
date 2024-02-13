@@ -4,6 +4,8 @@ use std::{env, sync::Mutex};
 use std::fs::File;
 use std::io::Write;
 use sha2::{Sha256, Digest};
+use std::path::Path;
+use std::fs;
 
 //Run main function with "cargo run <input string>"
 //If no input string given, default string used
@@ -40,6 +42,11 @@ fn print_qr_code(qr_code: &QrCode, buffer: &Mutex<Vec<u8>>) {
 
 
 fn save_svg_image(qr_code: &QrCode, input: &str) {
+    //make sure img-folder exista
+    let img_folder = "img";
+    if !Path::new(img_folder).exists() {
+        fs::create_dir(img_folder).expect("Unable to create 'img' folder");
+    }
     // Generate filename for SVG image with hash-function
     let file_name = format!("img/{}.svg", hash(input));
 
