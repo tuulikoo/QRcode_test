@@ -10,6 +10,14 @@ Generates a given string by default to the command line.
 ```bash
 cargo run `<input string>`
 ```
+
+or
+
+```bash
+cargo run -- --png`<input string>`
+```
+
+for example "cargo run -- --png testing qr-code generation"
 - If no input string is given, a default string is used
 - The appearance of the generated QR code in the command line depends on whether a dark or light theme is used in the editor.
 
